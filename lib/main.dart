@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,6 +22,17 @@ class Employee extends Person {
   }
 }
 
+class Point {
+  final double x;
+  final double y;
+  final double distanceFromOrigin;
+
+  Point(double x, double y)
+      : x = x,
+        y = y,
+        distanceFromOrigin = sqrt(x * x + y * y);
+}
+
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
@@ -32,6 +45,8 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     var employee = Employee.fromJson({});
     print(employee);
+    var p = Point(2, 3);
+    print(p.distanceFromOrigin);
   }
 
   @override
